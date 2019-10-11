@@ -3,7 +3,6 @@ package eu.ensup.analysetodeployment.test;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -22,9 +21,6 @@ public class TestMedecinService3 {
 	// Permet d'effectuer une injection de dépendance de constructeur, de méthode ou
 	// de champ de la classe MedecinService
 
-	@InjectMocks
-	MedecinService service;
-
 	@BeforeEach
 	public void init() {
 		MockitoAnnotations.initMocks(this);
@@ -41,6 +37,10 @@ public class TestMedecinService3 {
 		 * Scénario du test : La demande de lecture d'informations d'un médecin à partir
 		 * de son identifiant nous ramène la totalité de ses caractéristiques.
 		 */
+
+		// 2. Créer le service
+
+		MedecinService service = new MedecinService(mockdao);
 
 		// 3a. Imposer un comportement au mock (stubbing)
 
